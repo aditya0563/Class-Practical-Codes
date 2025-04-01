@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 // Function to perform selection sort
 void selectionSort(int arr[], int n) {
@@ -21,21 +20,21 @@ void selectionSort(int arr[], int n) {
 // Function to print the array
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
+        printf("%d ", arr[i]); // Print each element in the array
     }
-    cout << endl;
+    printf("\n"); // Move to the next line after printing the array
 }
 
 int main() {
-    int arr[] = {64, 25, 12, 22, 11};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {64, 25, 12, 22, 11}; // Initialize the array
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
 
-    cout << "Original array: ";
+    printf("Original array: ");
     printArray(arr, n);
 
-    selectionSort(arr, n);
+    selectionSort(arr, n); // Sort the array using selection sort
 
-    cout << "Sorted array: ";
+    printf("Sorted array: ");
     printArray(arr, n);
 
     return 0;

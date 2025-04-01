@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 // Function to perform insertion sort
 void insertionSort(int arr[], int n) {
@@ -12,28 +11,28 @@ void insertionSort(int arr[], int n) {
             arr[j + 1] = arr[j];
             --j;
         }
-        arr[j + 1] = key;
+        arr[j + 1] = key; // Place the key element in its correct position
     }
 }
 
 // Function to print the array
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
+        printf("%d ", arr[i]); // Print each element in the array
     }
-    cout << endl;
+    printf("\n"); // Move to the next line after printing the array
 }
 
 int main() {
-    int arr[] = {12, 11, 13, 5, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {12, 11, 13, 5, 6}; // Initialize the array
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
 
-    cout << "Original array: ";
+    printf("Original array: ");
     printArray(arr, n);
 
-    insertionSort(arr, n);
+    insertionSort(arr, n); // Sort the array using insertion sort
 
-    cout << "Sorted array: ";
+    printf("Sorted array: ");
     printArray(arr, n);
 
     return 0;

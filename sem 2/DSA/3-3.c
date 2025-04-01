@@ -1,13 +1,14 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
 // Function to merge two subarrays of arr[]
 void merge(int arr[], int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+    int n1 = mid - left + 1; // Size of first subarray
+    int n2 = right - mid;    // Size of second subarray
 
     // Create temporary arrays
-    int L[n1], R[n2];
+    int *L = (int *)malloc(n1 * sizeof(int));
+    int *R = (int *)malloc(n2 * sizeof(int));
 
     // Copy data to temporary arrays L[] and R[]
     for (int i = 0; i < n1; ++i) {
@@ -43,6 +44,10 @@ void merge(int arr[], int left, int mid, int right) {
         ++j;
         ++k;
     }
+
+    // Free temporary arrays
+    free(L);
+    free(R);
 }
 
 // Function to implement merge sort
@@ -62,21 +67,21 @@ void mergeSort(int arr[], int left, int right) {
 // Function to print the array
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
+        printf("%d ", arr[i]); // Print each element of the array
     }
-    cout << endl;
+    printf("\n"); // Move to the next line after printing the array
 }
 
 int main() {
-    int arr[] = {38, 27, 43, 3, 9, 82, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {38, 27, 43, 3, 9, 82, 10}; // Initialize the array
+    int n = sizeof(arr) / sizeof(arr[0]);  // Calculate the number of elements
 
-    cout << "Original array: ";
+    printf("Original array: ");
     printArray(arr, n);
 
-    mergeSort(arr, 0, n - 1);
+    mergeSort(arr, 0, n - 1); // Sort the array using merge sort
 
-    cout << "Sorted array: ";
+    printf("Sorted array: ");
     printArray(arr, n);
 
     return 0;

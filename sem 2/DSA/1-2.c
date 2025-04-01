@@ -1,11 +1,11 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
 // Function to dynamically allocate a 2D array
 int** create2DArray(int rows, int cols) {
-    int** array = new int*[rows];
+    int** array = (int**)malloc(rows * sizeof(int*));
     for (int i = 0; i < rows; ++i) {
-        array[i] = new int[cols];
+        array[i] = (int*)malloc(cols * sizeof(int));
     }
     return array;
 }
@@ -13,9 +13,9 @@ int** create2DArray(int rows, int cols) {
 // Function to deallocate the 2D array
 void delete2DArray(int** array, int rows) {
     for (int i = 0; i < rows; ++i) {
-        delete[] array[i];
+        free(array[i]);
     }
-    delete[] array;
+    free(array);
 }
 
 // Function to perform matrix addition
@@ -44,9 +44,9 @@ int** transposeMatrix(int** A, int rows, int cols) {
 void print2DArray(int** array, int rows, int cols) {
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            cout << array[i][j] << " ";
+            printf("%d ", array[i][j]);
         }
-        cout << endl;
+        printf("\n");
     }
 }
 
@@ -69,16 +69,16 @@ int main() {
 
     // Perform matrix addition
     int** C = addMatrices(A, B, rows, cols);
-    cout << "Matrix A:" << endl;
+    printf("Matrix A:\n");
     print2DArray(A, rows, cols);
-    cout << "Matrix B:" << endl;
+    printf("Matrix B:\n");
     print2DArray(B, rows, cols);
-    cout << "Matrix C (A + B):" << endl;
+    printf("Matrix C (A + B):\n");
     print2DArray(C, rows, cols);
 
     // Perform matrix transpose
     int** T = transposeMatrix(A, rows, cols);
-    cout << "Transpose of Matrix A:" << endl;
+    printf("Transpose of Matrix A:\n");
     print2DArray(T, cols, rows);
 
     // Deallocate memory

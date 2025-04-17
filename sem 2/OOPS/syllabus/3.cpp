@@ -25,7 +25,7 @@ public:
 
 int main() {
     Student s1;
-    s1.setDetails("Aditya", 101, 95.5);
+    s1.setDetails("garvit", 100, 93.3);
     s1.getDetails();
     return 0;
 }

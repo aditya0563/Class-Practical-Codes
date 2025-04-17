@@ -31,11 +31,11 @@ public:
 };
 
 int main() {
-    Circle c(5.0);
+    Circle c(2.5);
     cout << "Circle Area: " << c.calculateArea() << endl;
     cout << "Circle Perimeter: " << c.calculatePerimeter() << endl;
 
-    Rectangle r(4.0, 6.0);
+    Rectangle r(1.7, 2.5);
     cout << "Rectangle Area: " << r.calculateArea() << endl;
     cout << "Rectangle Perimeter: " << r.calculatePerimeter() << endl;
     return 0;

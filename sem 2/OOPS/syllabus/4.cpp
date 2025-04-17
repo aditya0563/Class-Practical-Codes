@@ -37,9 +37,9 @@ public:
 
 int main() {
     BankAccount acc;
-    acc.setDetails(123456, 10000.0, 5.0);
-    acc.deposit(2000);
-    acc.withdraw(500);
+    acc.setDetails(737920, 68293.0, 3.1);
+    acc.deposit(1000);
+    acc.withdraw(250);
     acc.calculateInterest();
     return 0;
 }

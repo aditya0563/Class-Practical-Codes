@@ -30,8 +30,8 @@ public:
 };
 
 int main() {
-    Complex num1(3.5, 2.5);
-    Complex num2(1.2, 1.8);
+    Complex num1(3.2, 7.3);
+    Complex num2(1.1, 8.2);
 
     cout << "First complex number: ";
     num1.print();

@@ -1,6 +1,15 @@
 #include <iostream>
-#include <numeric>
 using namespace std;
+
+int gcd(int a, int b) {
+    // Euclidean algorithm
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 class Rational {
 private:
@@ -8,9 +17,9 @@ private:
     int denominator;
 
     void reduce() {
-        int gcd = std::gcd(numerator, denominator);
-        numerator /= gcd;
-        denominator /= gcd;
+        int divisor = gcd(numerator, denominator);  // use custom gcd
+        numerator /= divisor;
+        denominator /= divisor;
         if (denominator < 0) {
             numerator = -numerator;
             denominator = -denominator;
@@ -65,8 +74,8 @@ public:
 
 int main() {
     try {
-        Rational r1(3, 4);
-        Rational r2(2, 5);
+        Rational r1(6, 3);
+        Rational r2(7, 8);
 
         cout << "First Rational number: ";
         r1.printFraction();

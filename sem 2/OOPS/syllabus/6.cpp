@@ -23,7 +23,7 @@ public:
 };
 
 int main() {
-    Complex c1(4, 5), c2(2, 3);
+    Complex c1(8, 2), c2(3, 6);
     Complex c3 = c1 + c2;
     Complex c4 = c1 - c2;
 
